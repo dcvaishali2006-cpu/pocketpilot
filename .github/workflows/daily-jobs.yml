@@ -1,0 +1,13 @@
+name: Daily jobs
+on:
+  schedule:
+    - cron: "30 14 * * *"   # 8:00 PM IST daily
+  workflow_dispatch:
+jobs:
+  summary:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Daily summary and subscription reminders
+        run: |
+          curl -fsS -X POST "${{ secrets.APP_URL }}/api/cron/daily" \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}"

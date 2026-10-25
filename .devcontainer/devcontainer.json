@@ -1,0 +1,20 @@
+{
+  "name": "PocketPilot",
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:1-20-bookworm",
+  "forwardPorts": [3000],
+  "portsAttributes": {
+    "3000": { "label": "PocketPilot", "onAutoForward": "openBrowser" }
+  },
+  "postCreateCommand": "[ -f package.json ] && npm install || true",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
+      ]
+    }
+  }
+}
